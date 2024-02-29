@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+  font-family: system-ui;
+  position: relative;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  @media (width <= 500px) {
+    height: 9rem;
+    width: 100%;
+  }
+}
+
+button {
+  background: none;
+  outline: transparent;
+  border: 0;
+  font-size: 1.1rem;
+  background-color: #2c2c2c;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:active {
+    transform: translate(1px, 5px);
+  }
+}
+
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #2c2c2c;
+  margin-bottom: 0.8em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.game-box {
+  width: min(850px, 100% - 2rem);
+  padding-block: 2rem;
+  margin-inline: auto;
+}
+
+.player-wrapper {
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+
+  @media (width <= 500px) {
+    flex-direction: column;
+  }
+}
+
+.workspace {
+  padding: 2rem;
+  min-height: 450px;
+  border: 2px solid hsl(200 60% 67%);
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  background: #fff;
+
+  > p {
+    font-size: 1.5rem;
+
+    > span {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  }
+
+  @media (width <= 500px) {
+    min-height: 250px;
+  }
+}
+
+.workspace--bot > img {
+  rotate: 180deg;
+}
+
+.announce-winner-user.hidden,
+.announce-winner-bot.hidden,
+.player-choose.hidden {
+  display: none;
+}
+
+.picks.hidden {
+  display: none;
+}
+
+.get-winner-bot,
+.get-winner-user {
+  font-weight: bold;
+}
+.cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.overlay {
+  background: hsla(200, 85%, 60%, 0.9);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2rem;
+
+  backdrop-filter: blur(3px);
+  color: #fff;
+
+  .box > h3 {
+    font-size: 3rem;
+  }
+}
